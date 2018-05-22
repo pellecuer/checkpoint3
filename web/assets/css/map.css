@@ -1,0 +1,20 @@
+.tile {
+    height:200px;
+    width:200px;
+    background-repeat: no-repeat;
+    text-align:center;
+}
+
+.sea {
+    background-image: url('../images/sea.png');
+}
+.port {
+    background-image: url('../images/port.png');
+}
+.island {
+    background-image: url('../images/island.png');
+}
+
+.boat {
+
+}
