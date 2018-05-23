@@ -60,7 +60,7 @@ class Boat
      *
      * @return Boat
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
 
@@ -72,7 +72,7 @@ class Boat
      *
      * @return string
      */
-    public function getName()
+    public function getName() :string
     {
         return $this->name;
     }
@@ -84,7 +84,7 @@ class Boat
      *
      * @return Boat
      */
-    public function setCoordX($coordX)
+    public function setCoordX(int $coordX)
     {
         $this->coordX = $coordX;
 
@@ -96,7 +96,7 @@ class Boat
      *
      * @return int
      */
-    public function getCoordX()
+    public function getCoordX() :int
     {
         return $this->coordX;
     }
@@ -108,7 +108,7 @@ class Boat
      *
      * @return Boat
      */
-    public function setCoordY($coordY)
+    public function setCoordY(int $coordY)
     {
         $this->coordY = $coordY;
 
@@ -120,7 +120,7 @@ class Boat
      *
      * @return int
      */
-    public function getCoordY()
+    public function getCoordY() :int
     {
         return $this->coordY;
     }

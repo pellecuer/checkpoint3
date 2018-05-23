@@ -4,12 +4,21 @@
 }
 
 body {
-    background-image: url('../images/ricepaper.png');
+    background-image: url('https://wallpapercave.com/wp/8Cre3rR.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    padding-top: 70px;
 }
 
+nav {
+
+        font-family: Caribbean;
+
+}
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: Caribbean;
-    /*color: white;*/
+    color: white;
 }
 
 .instructions {
@@ -17,6 +26,22 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     background-size:cover;
     background-repeat:no-repeat;
     padding:7em;
+    padding-top:6em;
     font-size:1.4em;
     height:800px;
+}
+
+.instructions  p::first-letter {
+    font-family: Caribbean;
+    font-size:2em;
+}
+
+.sparrow {
+    width:200px;
+    filter:sepia(0.5);
+    mix-blend-mode: multiply;
+}
+.compass {
+    width:150px;
+    filter:sepia(1);
 }

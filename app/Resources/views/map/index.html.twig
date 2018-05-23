@@ -5,21 +5,43 @@
 {% endblock %}
 {% block body %}
 
-    <div id="container">
+    <div class="container-fluid ">
         <h1>Map</h1>
 
-        {% for y in 0..1 %}
-            <div class="row map">
-                {% for x in 0..2 %}
-                    <div class="tile col-sm-1 {{ map[x][y].type }}">
-
-                        {% if boat.coordX == x and boat.coordY == y %}
-                            <img src="{{ asset('assets/images/boat.png') }}" alt="boat"/>
-                        {% endif %}
-                    </div>
-                {% endfor %}
+        <div class="row">
+            <div class="col-xs-10">
+                <div class="map">
+                    {% for y in 0..6 %}
+                        <div class="row">
+                            {% for x in 0..12 %}
+                                {% if map[x][y] is defined %}
+                                    <div class="tile col-xs-1 {{ map[x][y].type }}">
+                                        <div class="tile-name">{{ map[x][y].name ?? ''}}</div>
+                                        {% if boat.coordX == x and boat.coordY == y %}
+                                            <img class="boat img-responsive" src="{{ asset('assets/images/boat.png') }}"
+                                                 alt="boat"/>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-        {% endfor %}
+            <div class="col-xs-2 navigation">
+                <div class="row">
+                    <div class="col-xs-4 col-xs-offset-4"><a class="btn btn-default">North</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4"><a class="btn btn-default">West</a></div>
+                    <div class="col-xs-4 col-xs-offset-4"><a class="btn btn-default">East</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-xs-offset-4"><a class="btn btn-default">South</a></div>
+                </div>
 
+                <img class="img-responsive" src="{{ asset('assets/images/compass.png') }}" alt="compass"/>
+            </div>
+        </div>
     </div>
 {% endblock %}

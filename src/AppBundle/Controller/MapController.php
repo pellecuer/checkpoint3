@@ -17,6 +17,7 @@ class MapController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $tiles = $em->getRepository(Tile::class)->findAll();
+
         foreach ($tiles as $tile)
         {
             $map[$tile->getCoordX()][$tile->getCoordY()] = $tile;
@@ -25,20 +26,20 @@ class MapController extends Controller
         $boat = $em->getRepository(Boat::class)->findOneBy([]);
 
         return $this->render('map/index.html.twig', [
-            'map' => $map,
+            'map' => $map ?? [],
             'boat' => $boat,
         ]);
     }
 
 
     /**
-     * @Route("/map/{x}/{y}", name="moveBoat")
+     * Move the boat to coord x,y
+     * @Route("/map/{x}/{y}", name="moveBoat", requirements={"x"="\d+", "y"="\d+"}))
      */
     public function moveBoatAction(int $x, int $y)
     {
         $em = $this->getDoctrine()->getManager();
-        $boats = $em->getRepository(Boat::class)->findAll();
-        $boat = $boats[0];
+        $boat = $em->getRepository(Boat::class)->findOneBy([]);
 
         $boat->setCoordX($x);
         $boat->setCoordY($y);

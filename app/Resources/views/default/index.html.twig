@@ -2,22 +2,53 @@
 
 {% block body %}
     <div class="container">
-        <h1>Checkpoint 3</h1>
+        <h1 class="text-center">Checkpoint 3 </h1>
+
+        <div class="row instructions">
+            <div class="col-sm-9 ">
+                <p>
+                    The most famous pirate of the world, the great and inimitable Captain Jack Sparrow, is looking for
+                    the lost treasure of
+                    Rackham the Red, an old and pitiless pirate who spread terror among the Caribbean seas, long long
+                    time ago.
+                </p>
+                <p>An old sailor from France Kingdom, the Captain Haddock, has given Jack a mysterious map, with many
+                    islands on it.
+                    Haddock only knew that the treasure is burried on one of these island.
+                    Jack and his crew have the mission to navigate to each of them, until they find
+                    the golden pieces and precious stones which constitute the hidden treasure.</p>
+            </div>
+            <div class="col-sm-3">
+                <img class="sparrow" src="{{ asset('assets/images/sparrow.jpg') }}" alt="Jack Sparrow"/>
+            </div>
+            <div class="col-sm-12 text-center ">
+                <img class="compass" src="{{ asset('assets/images/compass.png') }}" alt="compass"/>
+            </div>
+
+            <div class="col-sm-12">
+                <p>Take the control of the Black Perl, Jack's magnificent ship and navigate amongs the oceans. Avoid
+                    krakens, storms other pirates,
+                    in order to be the first to find the treasure! Finish your last bottle of rhum and let's go to this
+                    aventure!</p>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-sm-12 instructions">
-                <p>The most famous pirate of the world, the great and inimitable Captain Jack Sparrow, is looking for the lost treasure of
-                    Rackham the Red, an old and pitiless pirate who spread terror among the Caribbean seas long time ago.
-                <p>An old sailor from France, the Captain Haddock, has given him a mysterious map, with many island on it.
-                    He only knew that the treasure is burried on one of these island.
-                    Jack and his crew have the mission to navigate to each of these island, on the Black Pearl, until they find
-                    the golden pieces and precious stones which constitute the hidden treasure.</p>
-
+                <h2>Your mission</h2>
                 <ol>
-                    <li>Load Fixtures</li>
-                    <li>Go the the `/map` url. You can see a map with a boat on top left (coordinates 0,0).
-                    If you enter url `/map/2/1`, you can see that the boat is moving to these coordinates. </li>
+                    <li>Load Fixtures ?</li>
+                    <li>Go the the <a href="{{ path('map') }}">`/map`</a> url. You can see a map with a boat on top left
+                        (coordinates 0,0).
+                        If you enter url `/map/2/1`, you can see that the boat is moving to these coordinates.
+                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                 </ol>
+
 
             </div>
         </div>

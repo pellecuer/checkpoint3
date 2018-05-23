@@ -1,8 +1,18 @@
+
 .tile {
-    height:200px;
-    width:200px;
+    height:130px;
+    width:130px;
     background-repeat: no-repeat;
+    background-size: cover;
     text-align:center;
+    mix-blend-mode: multiply ;
+    position:relative;
+}
+
+.tile-name {
+    position:absolute;
+    font-family:Caribbean;
+    opacity:0.8;
 }
 
 .sea {
@@ -15,6 +25,25 @@
     background-image: url('../images/island.png');
 }
 
-.boat {
+@keyframes myBoat {
+    0% { transform: rotate(-5deg); translate(0px, 0px);}
+    50% { transform: translate(5px, 5px); }
+    100%   { transform: rotate(5deg) translate(0px, 0px); }
+}
 
+.boat {
+    animation: 3s linear myBoat 0s infinite alternate;
+    filter:drop-shadow(3px 3px 5px #6d2c19);
+}
+
+.map {
+    background-image: url('https://2.bp.blogspot.com/-jR0ZXX5vc0g/U4NZT1eUocI/AAAAAAAAO-U/MKn_2WQrH6A/s1600/Dirty_Kraft_Paper_Texture.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding:1em;
+    margin-top:1em;
+}
+
+.navigation {
+    filter:sepia(1);
 }

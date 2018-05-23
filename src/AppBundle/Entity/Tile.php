@@ -91,7 +91,7 @@ class Tile
      *
      * @return Tile
      */
-    public function setCoordX($coordX)
+    public function setCoordX(int $coordX)
     {
         $this->coordX = $coordX;
 
@@ -103,7 +103,7 @@ class Tile
      *
      * @return int
      */
-    public function getCoordX()
+    public function getCoordX() :int
     {
         return $this->coordX;
     }
@@ -115,7 +115,7 @@ class Tile
      *
      * @return Tile
      */
-    public function setCoordY($coordY)
+    public function setCoordY(int $coordY)
     {
         $this->coordY = $coordY;
 
@@ -127,7 +127,7 @@ class Tile
      *
      * @return integer
      */
-    public function getCoordY()
+    public function getCoordY() :int
     {
         return $this->coordY;
     }
