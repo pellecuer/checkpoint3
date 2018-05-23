@@ -13,7 +13,7 @@ class MapController extends Controller
     /**
      * @Route("/map", name="map")
      */
-    public function indexAction()
+    public function displayMapAction()
     {
         $em = $this->getDoctrine()->getManager();
         $tiles = $em->getRepository(Tile::class)->findAll();
@@ -22,13 +22,14 @@ class MapController extends Controller
             $map[$tile->getCoordX()][$tile->getCoordY()] = $tile;
         }
 
-        $boat = $em->getRepository(Boat::class)->findAll();
+        $boat = $em->getRepository(Boat::class)->findOneBy([]);
 
         return $this->render('map/index.html.twig', [
             'map' => $map,
-            'boat' => $boat[0],
+            'boat' => $boat,
         ]);
     }
+
 
     /**
      * @Route("/map/{x}/{y}", name="moveBoat")

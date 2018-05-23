@@ -1,0 +1,22 @@
+@font-face {
+  font-family: Caribbean;
+  src: url('../fonts/Caribbean.ttf');
+}
+
+body {
+    background-image: url('../images/ricepaper.png');
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: Caribbean;
+    /*color: white;*/
+}
+
+.instructions {
+    background-image: url('http://img12.deviantart.net/b615/i/2013/327/6/9/papyrus___personal_use_only_by_moonlight4ngel-d2xjn6k.png');
+    background-size:cover;
+    background-repeat:no-repeat;
+    padding:7em;
+    font-size:1.4em;
+    height:800px;
+}

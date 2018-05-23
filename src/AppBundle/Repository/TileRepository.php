@@ -10,4 +10,5 @@ namespace AppBundle\Repository;
  */
 class TileRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

@@ -22,7 +22,7 @@
     - (health) à voir
 - faire des fixtures ou livrer une BDD ?
     
-## A faire par l'élève :
+# A faire par l'élève :
 - créer la méthode moveDirectionAction($direction)  ($direction = N,S,E,W)
     => bouger le bateau dans la bonne direction
     => pas possible si bord de la carte 

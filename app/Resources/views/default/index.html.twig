@@ -1,13 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-                <h1>Checkpoint 3</h1>
+    <div class="container">
+        <h1>Checkpoint 3</h1>
 
-                <p>
-                    Instructions ici
-                </p>
+        <div class="row">
+            <div class="col-sm-12 instructions">
+                <p>The most famous pirate of the world, the great and inimitable Captain Jack Sparrow, is looking for the lost treasure of
+                    Rackham the Red, an old and pitiless pirate who spread terror among the Caribbean seas long time ago.
+                <p>An old sailor from France, the Captain Haddock, has given him a mysterious map, with many island on it.
+                    He only knew that the treasure is burried on one of these island.
+                    Jack and his crew have the mission to navigate to each of these island, on the Black Pearl, until they find
+                    the golden pieces and precious stones which constitute the hidden treasure.</p>
+
+                <ol>
+                    <li>Load Fixtures</li>
+                    <li>Go the the `/map` url. You can see a map with a boat on top left (coordinates 0,0).
+                    If you enter url `/map/2/1`, you can see that the boat is moving to these coordinates. </li>
+                </ol>
+
+            </div>
         </div>
     </div>
 {% endblock %}
