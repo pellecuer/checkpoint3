@@ -1,49 +1,57 @@
 
 .tile {
-    height:130px;
-    width:130px;
+    height: 130px;
+    width: 130px;
     background-repeat: no-repeat;
     background-size: cover;
-    text-align:center;
-    mix-blend-mode: multiply ;
-    position:relative;
+    text-align: center;
+    mix-blend-mode: multiply;
+    position: relative;
 }
 
 .tile-name {
-    position:absolute;
-    font-family:Caribbean;
-    opacity:0.8;
+    position: absolute;
+    font-family: Caribbean;
+    opacity: 0.8;
 }
 
 .sea {
     background-image: url('../images/sea.png');
 }
+
 .port {
     background-image: url('../images/port.png');
 }
+
 .island {
     background-image: url('../images/island.png');
 }
 
 @keyframes myBoat {
-    0% { transform: rotate(-5deg); translate(0px, 0px);}
-    50% { transform: translate(5px, 5px); }
-    100%   { transform: rotate(5deg) translate(0px, 0px); }
+    0% {
+        transform: rotate(-5deg);
+    translate(0 px, 0 px);
+    }
+    50% {
+        transform: translate(5px, 5px);
+    }
+    100% {
+        transform: rotate(5deg) translate(0px, 0px);
+    }
 }
 
 .boat {
     animation: 3s linear myBoat 0s infinite alternate;
-    filter:drop-shadow(3px 3px 5px #6d2c19);
+    filter: drop-shadow(3px 3px 5px #6d2c19);
 }
 
 .map {
     background-image: url('../images/map.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    padding:1em;
-    margin-top:1em;
+    padding: 1em;
+    margin-top: 1em;
 }
 
 .navigation {
-    filter:sepia(1);
 }

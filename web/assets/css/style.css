@@ -1,21 +1,20 @@
 @font-face {
-  font-family: Caribbean;
-  src: url('../fonts/Caribbean.ttf');
+    font-family: Caribbean;
+    src: url('../fonts/Caribbean.ttf');
 }
 
 body {
     background-image: url('../images/background.jpg');
-    background-size:cover;
-    background-repeat:no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     padding-top: 70px;
 }
 
 nav {
-
-        font-family: Caribbean;
-
+    font-family: Caribbean;
 }
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: Caribbean;
     color: white;
@@ -23,39 +22,39 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .instructions {
     background-image: url('../images/papyrus.png');
-    background-size:cover;
-    background-repeat:no-repeat;
-    padding:7em;
-    padding-top:6em;
-    font-size:1.4em;
-    height:800px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 7em;
+    padding-top: 6em;
+    font-size: 1.4em;
+    height: 800px;
 }
 
-.instructions  p::first-letter {
+.instructions p::first-letter {
     font-family: Caribbean;
-    font-size:2em;
+    font-size: 2em;
 }
 
 .treasure {
-    margin-top:-15px;
+    margin-top: -15px;
     background-image: url('../images/deep_sea.jpg');
-    background-size:cover;
-    background-repeat:no-repeat;
-    padding:2em;
-    font-size:1.4em;
-    height:850px;
-    color:white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 2em;
+    font-size: 1.4em;
+    height: 850px;
+    color: white;
     mix-blend-mode: screen;
     background-attachment: fixed;
 }
 
-
 .sparrow {
-    width:200px;
-    filter:sepia(0.5);
+    width: 200px;
+    filter: sepia(0.5);
     mix-blend-mode: multiply;
 }
+
 .compass {
-    width:150px;
-    filter:sepia(1);
+    width: 150px;
+    filter: sepia(1);
 }

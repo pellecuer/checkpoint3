@@ -14,6 +14,24 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class BoatController extends Controller
 {
+
+    /**
+     * Move the boat to coord x,y
+     * @Route("/move/{x}/{y}", name="moveBoat", requirements={"x"="\d+", "y"="\d+"}))
+     */
+    public function moveBoatAction(int $x, int $y)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $boat = $em->getRepository(Boat::class)->findOneBy([]);
+
+        $boat->setCoordX($x);
+        $boat->setCoordY($y);
+
+        $em->flush();
+
+        return $this->redirectToRoute('map');
+    }
+
     /**
      * Lists all boat entities.
      *

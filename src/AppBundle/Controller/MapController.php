@@ -7,6 +7,7 @@ use AppBundle\Entity\Tile;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class MapController extends Controller
 {
@@ -32,20 +33,5 @@ class MapController extends Controller
     }
 
 
-    /**
-     * Move the boat to coord x,y
-     * @Route("/map/{x}/{y}", name="moveBoat", requirements={"x"="\d+", "y"="\d+"}))
-     */
-    public function moveBoatAction(int $x, int $y)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $boat = $em->getRepository(Boat::class)->findOneBy([]);
 
-        $boat->setCoordX($x);
-        $boat->setCoordY($y);
-
-        $em->flush();
-
-        return $this->redirectToRoute('map');
-    }
 }
