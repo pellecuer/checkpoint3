@@ -37,7 +37,7 @@
 }
 
 .map {
-    background-image: url('https://2.bp.blogspot.com/-jR0ZXX5vc0g/U4NZT1eUocI/AAAAAAAAO-U/MKn_2WQrH6A/s1600/Dirty_Kraft_Paper_Texture.jpg');
+    background-image: url('../images/map.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     padding:1em;
