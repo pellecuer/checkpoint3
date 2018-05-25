@@ -3,9 +3,11 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Boat;
+use AppBundle\Traits\BoatTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+
 
 /**
  * Boat controller.
@@ -14,6 +16,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class BoatController extends Controller
 {
+    use BoatTrait;
 
     /**
      * Move the boat to coord x,y
@@ -22,7 +25,7 @@ class BoatController extends Controller
     public function moveBoatAction(int $x, int $y)
     {
         $em = $this->getDoctrine()->getManager();
-        $boat = $em->getRepository(Boat::class)->findOneBy([]);
+        $boat = $this->getBoat();
 
         $boat->setCoordX($x);
         $boat->setCoordY($y);
