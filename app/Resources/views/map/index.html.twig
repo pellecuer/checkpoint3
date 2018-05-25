@@ -16,7 +16,7 @@
                             {% for x in 0..12 %}
                                 {% if map[x][y] is defined %}
                                     <div class="tile col-xs-1 {{ map[x][y].type }}">
-                                        <div class="tile-name">{{ map[x][y].name ?? ''}}</div>
+                                        <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
                                         {% if boat.coordX == x and boat.coordY == y %}
                                             <img class="boat img-responsive" src="{{ asset('assets/images/boat.png') }}"
                                                  alt="boat"/>
