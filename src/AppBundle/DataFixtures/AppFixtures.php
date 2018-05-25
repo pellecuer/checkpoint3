@@ -30,10 +30,10 @@ class AppFixtures extends Fixture
         // create 20 products! Bam!
         $types = ['sea', 'sea', 'sea', 'sea', 'island', 'island', 'port'];
 
-        foreach (y) ($x = 0; $x < 12; $x++) {
-            for ($y = 0; $y < 6; $y++) {
+        foreach ($tiles as $y=>$line) {
+            foreach ($line as $x=>$type) {
                 $tile = new Tile();
-                $tile->setType($types[rand(0, 6)]);
+                $tile->setType($type);
                 $tile->setCoordX($x);
                 $tile->setCoordY($y);
                 $manager->persist($tile);
