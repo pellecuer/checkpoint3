@@ -22,8 +22,7 @@ class MapController extends Controller
         $em = $this->getDoctrine()->getManager();
         $tiles = $em->getRepository(Tile::class)->findAll();
 
-        foreach ($tiles as $tile)
-        {
+        foreach ($tiles as $tile) {
             $map[$tile->getCoordX()][$tile->getCoordY()] = $tile;
         }
 
@@ -34,7 +33,4 @@ class MapController extends Controller
             'boat' => $boat,
         ]);
     }
-
-
-
 }

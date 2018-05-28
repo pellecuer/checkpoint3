@@ -39,6 +39,4 @@ class TileType extends AbstractType
     {
         return 'appbundle_tile';
     }
-
-
 }

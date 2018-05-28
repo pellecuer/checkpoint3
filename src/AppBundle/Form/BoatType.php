@@ -31,6 +31,4 @@ class BoatType extends AbstractType
     {
         return 'appbundle_boat';
     }
-
-
 }

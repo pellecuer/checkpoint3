@@ -125,4 +125,3 @@ class Boat
         return $this->coordY;
     }
 }
-

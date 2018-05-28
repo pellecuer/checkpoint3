@@ -156,4 +156,3 @@ class Tile
         return $this->name;
     }
 }
-

@@ -30,8 +30,8 @@ class AppFixtures extends Fixture
         // create 20 products! Bam!
         $types = ['sea', 'sea', 'sea', 'sea', 'island', 'island', 'port'];
 
-        foreach ($tiles as $y=>$line) {
-            foreach ($line as $x=>$type) {
+        foreach ($tiles as $y => $line) {
+            foreach ($line as $x => $type) {
                 $tile = new Tile();
                 $tile->setType($type);
                 $tile->setCoordX($x);
