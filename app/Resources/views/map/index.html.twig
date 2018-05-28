@@ -4,14 +4,15 @@
     <link rel="stylesheet" href="{{ asset('assets/css/map.css') }}">
 {% endblock %}
 {% block body %}
-    {{ app.request.attributes.get('_route') }}
 
     <div class="container-fluid ">
         <h1>Map</h1>
-
         <div class="row">
             <div class="col-xs-10">
                 <div class="map">
+                    {% if map is empty %}
+                        <div class="alert alert-warning">You are still on the firm ground, you have to loat fixtures first ! </div>
+                    {% endif %}
                     {% for y in 0..6 %}
                         <div class="row">
                             {% for x in 0..12 %}
@@ -31,12 +32,13 @@
                 </div>
             </div>
             <div class="col-xs-2">
-                <div class="navigation">
-                    a
-                    {# Add here N/S/E/W buttons #}
-                </div>
                 <div class="infos">
+                    <h2>Information</h2>
                     {# Add here informations about current ship position #}
+                </div>
+                <div class="navigation">
+                    <h2>Navigation</h2>
+                    {# Add here N/S/E/W buttons #}
                 </div>
             </div>
         </div>

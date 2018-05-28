@@ -49,22 +49,20 @@
                         Black Pearl can navigate on this map, which is build with Tiles (Tile entity). Each
                         Tile has coordinates (x, y) and a type (sea, port, island). The Black Pearl (one Boat entity) also has
                         coordinates, so he can be displayed on the right Tile on the map.
-                    </li>
 
-                    <li>
-                        Right now, the database is empty (no boat and no tile):
+                        <p>Right now, the database is empty (no boat and no tile):
                         Jack is still in the firm ground! First of all, you have to fill the database.
                         Fortunately, we have fixtures ready ! Lauch <code>php bin/console
-                            doctrine:fixtures:load</code>. Answer <code>y</code> at the question and that's it, you have data.
+                                doctrine:fixtures:load</code>. Answer <code>y</code> at the question and that's it, you have data.</p>
                     </li>
 
-                    <p>
+                    <blockquote>
                         On the map, you can move the boat with the moveBoatAction() method of the BoatController (it already exist).
                         As you can see in the code, you just have to use the route <em>/boat/move/x/y</em> (x and y should be coordinates)
                         and the Black Pearl will go on the right tile.
                         Then, this method redirect the browser on the map.
                         Moreover, you can get a Boat object corresponding to the Black Pearl, on controllers with the method $this->getBoat().
-                    </p>
+                    </blockquote>
 
                     <li>
                         In the map/index.html.twig file, in the <code>div</code> with the class "infos", add the following information about the boat :
@@ -140,7 +138,9 @@
                     (e.g. do not display 'W' link if the boat can not move west, because it is already on the left border of the map).
                 </ol>
             </div>
-            <div class="col-sm-12 text-center">Good Luck !</div>
+            <div class="col-sm-12 text-center">
+                <img src="{{ asset('assets/images/jack.gif') }}" alt="Good Luck !"/>
+            </div>
         </div>
     </div>
 {% endblock %}
