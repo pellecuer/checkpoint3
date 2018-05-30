@@ -8,7 +8,6 @@
 
 namespace AppBundle\Traits;
 
-
 use AppBundle\Entity\Boat;
 use Doctrine\ORM\EntityManagerInterface;
 

@@ -61,6 +61,16 @@ class Tile
     }
 
     /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
      * Set type
      *
      * @param string $type
@@ -75,13 +85,13 @@ class Tile
     }
 
     /**
-     * Get type
+     * Get coordX
      *
-     * @return string
+     * @return int
      */
-    public function getType()
+    public function getCoordX(): int
     {
-        return $this->type;
+        return $this->coordX;
     }
 
     /**
@@ -99,13 +109,13 @@ class Tile
     }
 
     /**
-     * Get coordX
+     * Get coordY
      *
-     * @return int
+     * @return integer
      */
-    public function getCoordX() :int
+    public function getCoordY(): int
     {
-        return $this->coordX;
+        return $this->coordY;
     }
 
     /**
@@ -123,13 +133,13 @@ class Tile
     }
 
     /**
-     * Get coordY
+     * Get name
      *
-     * @return integer
+     * @return string
      */
-    public function getCoordY() :int
+    public function getName()
     {
-        return $this->coordY;
+        return $this->name;
     }
 
     /**
@@ -145,15 +155,4 @@ class Tile
 
         return $this;
     }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 }
-

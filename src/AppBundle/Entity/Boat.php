@@ -54,6 +54,16 @@ class Boat
     }
 
     /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
      * Set name
      *
      * @param string $name
@@ -68,13 +78,13 @@ class Boat
     }
 
     /**
-     * Get name
+     * Get coordX
      *
-     * @return string
+     * @return int
      */
-    public function getName() :string
+    public function getCoordX(): int
     {
-        return $this->name;
+        return $this->coordX;
     }
 
     /**
@@ -92,13 +102,13 @@ class Boat
     }
 
     /**
-     * Get coordX
+     * Get coordY
      *
      * @return int
      */
-    public function getCoordX() :int
+    public function getCoordY(): int
     {
-        return $this->coordX;
+        return $this->coordY;
     }
 
     /**
@@ -114,15 +124,4 @@ class Boat
 
         return $this;
     }
-
-    /**
-     * Get coordY
-     *
-     * @return int
-     */
-    public function getCoordY() :int
-    {
-        return $this->coordY;
-    }
 }
-

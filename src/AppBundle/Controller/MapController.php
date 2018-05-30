@@ -22,19 +22,15 @@ class MapController extends Controller
         $em = $this->getDoctrine()->getManager();
         $tiles = $em->getRepository(Tile::class)->findAll();
 
-        foreach ($tiles as $tile)
-        {
+        foreach ($tiles as $tile) {
             $map[$tile->getCoordX()][$tile->getCoordY()] = $tile;
         }
 
         $boat = $this->getBoat();
 
         return $this->render('map/index.html.twig', [
-            'map' => $map ?? [],
+            'map'  => $map ?? [],
             'boat' => $boat,
         ]);
     }
-
-
-
 }

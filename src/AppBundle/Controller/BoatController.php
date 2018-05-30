@@ -6,8 +6,8 @@ use AppBundle\Entity\Boat;
 use AppBundle\Traits\BoatTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Boat controller.
@@ -89,9 +89,24 @@ class BoatController extends Controller
         $deleteForm = $this->createDeleteForm($boat);
 
         return $this->render('boat/show.html.twig', array(
-            'boat' => $boat,
+            'boat'        => $boat,
             'delete_form' => $deleteForm->createView(),
         ));
+    }
+
+    /**
+     * Creates a form to delete a boat entity.
+     *
+     * @param Boat $boat The boat entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(Boat $boat)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('boat_delete', array('id' => $boat->getId())))
+            ->setMethod('DELETE')
+            ->getForm();
     }
 
     /**
@@ -113,8 +128,8 @@ class BoatController extends Controller
         }
 
         return $this->render('boat/edit.html.twig', array(
-            'boat' => $boat,
-            'edit_form' => $editForm->createView(),
+            'boat'        => $boat,
+            'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -137,21 +152,5 @@ class BoatController extends Controller
         }
 
         return $this->redirectToRoute('boat_index');
-    }
-
-    /**
-     * Creates a form to delete a boat entity.
-     *
-     * @param Boat $boat The boat entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Boat $boat)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('boat_delete', array('id' => $boat->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
     }
 }

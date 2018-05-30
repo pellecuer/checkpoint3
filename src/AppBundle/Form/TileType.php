@@ -17,18 +17,20 @@ class TileType extends AbstractType
     {
         $builder
             ->add('type', ChoiceType::class, [
-                'choices' => ['Sea'=>'sea', 'Port'=>'port', 'Island'=>'island']
+                'choices' => ['Sea' => 'sea', 'Port' => 'port', 'Island' => 'island'],
             ])
             ->add('coordX')
             ->add('coordY')
             ->add('name');
-    }/**
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Tile'
+            'data_class' => 'AppBundle\Entity\Tile',
         ));
     }
 
@@ -39,6 +41,4 @@ class TileType extends AbstractType
     {
         return 'appbundle_tile';
     }
-
-
 }
