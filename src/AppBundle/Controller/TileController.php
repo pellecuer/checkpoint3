@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Tile;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Tile controller.
@@ -68,9 +69,24 @@ class TileController extends Controller
         $deleteForm = $this->createDeleteForm($tile);
 
         return $this->render('tile/show.html.twig', array(
-            'tile' => $tile,
+            'tile'        => $tile,
             'delete_form' => $deleteForm->createView(),
         ));
+    }
+
+    /**
+     * Creates a form to delete a tile entity.
+     *
+     * @param Tile $tile The tile entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(Tile $tile)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('tile_delete', array('id' => $tile->getId())))
+            ->setMethod('DELETE')
+            ->getForm();
     }
 
     /**
@@ -92,8 +108,8 @@ class TileController extends Controller
         }
 
         return $this->render('tile/edit.html.twig', array(
-            'tile' => $tile,
-            'edit_form' => $editForm->createView(),
+            'tile'        => $tile,
+            'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -116,21 +132,5 @@ class TileController extends Controller
         }
 
         return $this->redirectToRoute('tile_index');
-    }
-
-    /**
-     * Creates a form to delete a tile entity.
-     *
-     * @param Tile $tile The tile entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Tile $tile)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('tile_delete', array('id' => $tile->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
     }
 }

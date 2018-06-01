@@ -8,15 +8,13 @@
             <div class="col-sm-9 ">
                 <p>
                     The most famous pirate of the world, the great and inimitable Captain Jack Sparrow, is looking for
-                    the lost treasure of
-                    Rackham the Red, an old and pitiless pirate who spread terror among the Caribbean seas, long long
-                    time ago.
+                    the lost treasure of Rackham the Red, an old and pitiless pirate who spread terror among the Caribbean seas,
+                    long long time ago.
                 </p>
-                <p>An old sailor from France Kingdom, the Captain Haddock, has given Jack a mysterious map, with many
-                    islands on it.
-                    Haddock only knew that the treasure is burried on one of these island.
-                    Jack and his crew have the mission to navigate to each of them, until they find
-                    the golden pieces and precious stones which constitute the hidden treasure.</p>
+                <p>An old sailor from France Kingdom, the Captain Haddock, has given Jack a mysterious map, with many islands on it.
+                    Haddock only knew that the treasure is burried on one of these islands.
+                    Jack and his crew have the mission to navigate to each of them, until they find the golden pieces
+                    and precious stones which constitute the hidden treasure.</p>
             </div>
             <div class="col-sm-3">
                 <img class="sparrow" src="{{ asset('assets/images/sparrow.jpg') }}" alt="Jack Sparrow"/>
@@ -26,10 +24,9 @@
             </div>
 
             <div class="col-sm-12">
-                <p>Take the control of the Black Perl, Jack's magnificent ship and navigate amongs the oceans. Avoid
-                    krakens, storms other pirates,
-                    in order to be the first to find the treasure! Finish your last bottle of rhum and let's go to this
-                    aventure!</p>
+                <p>Take the control of the Black Perl, Jack's magnificent ship and navigate among the oceans. Avoid
+                    krakens, storms other pirates and be the first to find the treasure!
+                    It's time to finish your last bottle of rhum and let's go to this aventure!</p>
             </div>
         </div>
     </div>
@@ -39,11 +36,11 @@
                 <h2>Your mission</h2>
                 <ol class="instructions">
                     <li>
-                        Hello ship's boy, read carefully all the instructions below before starting to code ;)
+                        Hello ship's boy, <strong>read carefully all the instructions</strong> below before starting to code ;)
                     </li>
                     <li>
-                        Each step is relatively independant, do not hesitate to move on to the next if you stay blocked
-                        too long one one step.
+                        Each step is relatively independent, do not hesitate to move on to the next if you stay blocked
+                        too long on one step.
                         Also, remember you can request assistance to your former ;)
                     </li>
 
@@ -52,81 +49,80 @@
                         Black Pearl can navigate on this map, which is build with Tiles (Tile entity). Each
                         Tile has coordinates (x, y) and a type (sea, port, island). The Black Pearl (one Boat entity) also has
                         coordinates, so he can be displayed on the right Tile on the map.
-                    </li>
 
-                    <li>
-                        Right now, the database is empty (no boat and no tile):
+                        <p>Right now, the database is empty (no boat and no tile):
                         Jack is still in the firm ground! First of all, you have to fill the database.
-                        Fortunatly, we have fixtures ready ! Lauch <code>php bin/console
-                            doctrine:fixtures:load</code>. Answer <code>y</code> at the question and that's it, you have datas.
+                        Fortunately, we have fixtures ready ! Lauch <code>php bin/console
+                                doctrine:fixtures:load</code>. Answer <code>y</code> at the question and that's it, you have data.</p>
                     </li>
 
-                    <p>
+                    <blockquote>
                         On the map, you can move the boat with the moveBoatAction() method of the BoatController (it already exist).
                         As you can see in the code, you just have to use the route <em>/boat/move/x/y</em> (x and y should be coordinates)
                         and the Black Pearl will go on the right tile.
                         Then, this method redirect the browser on the map.
-                        Moreover, you can get the boat on controllers with the method $this->getBoat().
-                    </p>
+                        Moreover, you can get a Boat object corresponding to the Black Pearl, on controllers with the method $this->getBoat().
+                    </blockquote>
 
                     <li>
-                        In the map twig, in the div with the class "infos", add the following informations about the boat :
+                        In the map/index.html.twig file, in the <code>div</code> with the class "infos", add the following information about the boat :
                         <ul>
                             <li>its coordinates (x, y)</li>
                             <li>type of the tile</li>
-                            <li>name of the tile (a tile can have an optionnal name, for example the name of the island...)
-                            </li>
+                            <li>name of the tile (a tile can have an optionnal name, for example the name of the island...)</li>
                         </ul>
                         <span class="hint">Hint: </span>of course, do not hesitate to edit the code of displayMapAction() on MapController.
                     </li>
 
                     <li>
-                        Right now, if you move your boat on an inexistent tile, the boat just disappear on there is no error message.
+                        Right now, if you move your boat on a nonexistent tile, the boat just disappear on there is no error message.
                         To prevent Jack to getting lost, you will have to prevent moving outside the map.
-                        Create a *MapManager* service, in the /src/Services folder, and create a tileExists function
-                        (it take coordinates x and y as argument, and return a boolean). It should test if the tile with that coordinates exist or not.
+                        Create a *MapManager* service, in the /src/Services folder, and create a tileExists() method
+                        (it takes coordinates x and y as argument, and return a boolean). It should test if the tile with these coordinates exists or not.
                         <br/>
                         <span class="hint">Hint: </span>Use TileRepository in your service.
                     </li>
 
                     <li>
-                        Use that new service and this method in moveBoat() to display an error (and prevent the boat to move) if the destination tile does not exist.
+                        Use this new service and this new method in the moveBoat() method, to display an error (and prevent the boat to move)
+                        if the destination tile does not exist.
                         <br/>
                         <span class="hint">Hint: </span>Use flash messages for the error message. The display of flash message is already implemented in base.html.twig.
                     </li>
 
                     <li>
-                        moveBoat method is cool, however, it is more like a teleport than a real move...<br>
-                        In BoatController, create a moveDirection() method wich take a direction as parameter.
-                        This direction can only be *N*, *S*, *E* or *W*. For example, */boat/move/A* must not work (symfony will generate a 404 error).
+                        moveBoat() method is cool, however, it is more like a teleport than a real move...<br/>
+                        In BoatController, create a moveDirection() method which take a <em>direction</em> as parameter.
+                        This direction can only be 'N', 'S', 'E' or 'W'. For example, <em>/boat/move/A</em> must not work (Symfony will generate a 404 error).
                         Of course, the method should move the boat in the right direction.
                     </li>
 
                     <li>
-                        As moveBoat(), use tileExists method of your service to display an error message (flash) if the move is not possible on moveDirection().
-                        After the move, redirect the browser on */map*.
-                        Add four links on the map twig to allow the user to move on the 4 possible ways.
-                        Put your buttons on the div class "navigation" (it already exist).
+                        As moveBoat(), use tileExists() method of your service to display an error message (flash) if the move is not possible on moveDirection().
+                        After the move, redirect the browser on <em>/map</em>.
+                        Add four links on the map view to allow the user to move on the 4 possible ways.
+                        Put your buttons on the div class "navigation" (it already exists).
                     </li>
 
                     <li>
-                        Add the property *$hasTreasure* (bool) on Tile entity. It will allow to know if the treasure is on a tile or not.
+                        Add the property <code>$hasTreasure</code> (a boolean) on Tile entity. It will allow to know if the treasure is on a tile or not.
                         Don't forget to create getter / setter and to update your database.
                     </li>
 
                     <li>
-                        In MapManager, create a *getRandomIsland()* method. It should return a random Tile with "island" type.
-                        To do that, you should first get all island tiles in an array, then return one tile randomly (in php)
+                        In MapManager, create a getRandomIsland() method. It should return a <strong>random</strong> Tile with <strong>island</strong> type.
+                        To do that, you should first get all island tiles in an array, then return one tile randomly (in php).
                         <br/>
                         <span class="hint">Hint: </span>https://secure.php.net/manual/fr/function.array-rand.php
                     </li>
 
                     <li>
-                        In MapController, create a startAction method (with a */start* route) which launch a new game.
+                        In MapController, create a startAction() method (with a <em>/start</em> route) which launch a new game.
                         The method must reset boat coordinates to 0,0. It also must put the treasure on a random island.
-                        finally, it will redirect on */map*.
+                        Finally, it will redirect on <em>/map</em>.
                         <br/>
-                        <span class="hint">Hint: </span>Warning, only one treasure can be on the map, don't forget to remove it from the map before put one in another tile ;)
+                        <span class="hint">Hint: </span>Warning, only one treasure can be on the map, don't forget to remove it
+                        from the map <strong>before</strong> put one in another tile ;)
                     </li>
 
                     <li>
@@ -134,13 +130,16 @@
                     </li>
 
                     <li>
-                        This method must be called after each move of the boat. If it return true, a flash message must be displayed.
+                        This method must be called <strong>after each move</strong> of the boat. If it return true, a flash success message must be displayed.
                     </li>
 
                     <span class="hint">Bonus: </span>
-                    About the 4 moving links, hide them for move that will fail (do not display W link if the boat can not move west).
+                    About the 4 moving links, hide them for move that will fail
+                    (e.g. do not display 'W' link if the boat can not move west, because it is already on the left border of the map).
                 </ol>
-
+            </div>
+            <div class="col-sm-12 text-center">
+                <img src="{{ asset('assets/images/jack.gif') }}" alt="Good Luck !"/>
             </div>
         </div>
     </div>

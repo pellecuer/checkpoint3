@@ -13,14 +13,19 @@ class BoatType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('coordX')->add('coordY');
-    }/**
+        $builder
+            ->add('name')
+            ->add('coordX')
+            ->add('coordY');
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Boat'
+            'data_class' => 'AppBundle\Entity\Boat',
         ));
     }
 
@@ -31,6 +36,4 @@ class BoatType extends AbstractType
     {
         return 'appbundle_boat';
     }
-
-
 }
