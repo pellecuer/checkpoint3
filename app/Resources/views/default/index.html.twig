@@ -64,6 +64,35 @@
                     </blockquote>
 
                     <li>
+                        <em>moveBoat()</em> method is cool, however, it is more like a teleport than a real move...<br/>
+                        In BoatController, create a moveDirection() method which take a <em>direction</em> as parameter.
+                        This direction can only be 'N', 'S', 'E' or 'W'. For example, <em>/boat/move/A</em> must not work (Symfony will generate a 404 error).
+                        Of course, the method should move the boat in the right direction.
+                        After the move, redirect the browser on <em>/map</em>.
+                        <br/>
+                        <span class="hint">Hint: </span> Add four links on the map view to allow the user to move on the 4 possible ways.
+                        Put your buttons on the div class "navigation" (it already exists).
+                        <span class="hint">Hint2: </span>If you do not succeed to implement moveDirection(), go ahead and use the already existing moveBoat() method for the following steps instead of moveDirection().
+                    </li>
+
+                    <li>
+                        Right now, if you move your boat on a nonexistent tile, the boat just disappear on there is no error message.
+                        To prevent Jack to getting lost, you will have to prevent moving outside the map.
+                        Create a *MapManager* service, in the /src/AppBundle/Services folder, and create a tileExists() method
+                        (it takes coordinates x and y as argument, and return a boolean). It should test if the tile with these coordinates exists or not.
+                        <br/>
+                        <span class="hint">Hint: </span>Use TileRepository in your service.
+                    </li>
+
+
+                    <li>
+                        Use this new service and this new method in the moveDirection() method, to display an error (and prevent the boat to move)
+                        if the destination tile does not exist.
+                        <br/>
+                        <span class="hint">Hint: </span>Use flash messages for the error message. The display of flash message is already implemented in base.html.twig.
+                    </li>
+
+                    <li>
                         In the map/index.html.twig file, in the <code>div</code> with the class "infos", add the following information about the boat :
                         <ul>
                             <li>its coordinates (x, y)</li>
@@ -72,35 +101,6 @@
                         <span class="hint">Hint: </span>of course, do not hesitate to edit the code of displayMapAction() on MapController.
                     </li>
 
-                    <li>
-                        Right now, if you move your boat on a nonexistent tile, the boat just disappear on there is no error message.
-                        To prevent Jack to getting lost, you will have to prevent moving outside the map.
-                        Create a *MapManager* service, in the /src/Services folder, and create a tileExists() method
-                        (it takes coordinates x and y as argument, and return a boolean). It should test if the tile with these coordinates exists or not.
-                        <br/>
-                        <span class="hint">Hint: </span>Use TileRepository in your service.
-                    </li>
-
-                    <li>
-                        Use this new service and this new method in the moveBoat() method, to display an error (and prevent the boat to move)
-                        if the destination tile does not exist.
-                        <br/>
-                        <span class="hint">Hint: </span>Use flash messages for the error message. The display of flash message is already implemented in base.html.twig.
-                    </li>
-
-                    <li>
-                        moveBoat() method is cool, however, it is more like a teleport than a real move...<br/>
-                        In BoatController, create a moveDirection() method which take a <em>direction</em> as parameter.
-                        This direction can only be 'N', 'S', 'E' or 'W'. For example, <em>/boat/move/A</em> must not work (Symfony will generate a 404 error).
-                        Of course, the method should move the boat in the right direction.
-                    </li>
-
-                    <li>
-                        As moveBoat(), use tileExists() method of your service to display an error message (flash) if the move is not possible on moveDirection().
-                        After the move, redirect the browser on <em>/map</em>.
-                        Add four links on the map view to allow the user to move on the 4 possible ways.
-                        Put your buttons on the div class "navigation" (it already exists).
-                    </li>
 
                     <li>
                         Add the property <code>$hasTreasure</code> (a boolean) on Tile entity. It will allow to know if the treasure is on a tile or not.
@@ -111,7 +111,7 @@
                         In MapManager, create a getRandomIsland() method. It should return a <strong>random</strong> Tile with <strong>island</strong> type.
                         To do that, you should first get all island tiles in an array, then return one tile randomly (in php).
                         <br/>
-                        <span class="hint">Hint: </span>https://secure.php.net/manual/fr/function.array-rand.php
+                        <span class="hint">Hint: </span>Look at <a href="https://secure.php.net/manual/fr/function.array-rand.php">array_rand()</a> function.
                     </li>
 
                     <li>
@@ -124,16 +124,12 @@
                     </li>
 
                     <li>
-                        On MapManager, create checkTreasure() method. It should check if the boat is on the tile with the treasure and return true or false.
+                        On MapManager, create checkTreasure() method. The method take a Boat objet as parameter, and should check that this boat is on the tile with the treasure and return true or false.
                     </li>
 
                     <li>
                         This method must be called <strong>after each move</strong> of the boat. If it return true, a flash success message must be displayed.
                     </li>
-
-                    <span class="hint">Bonus: </span>
-                    About the 4 moving links, hide them for move that will fail
-                    (e.g. do not display 'W' link if the boat can not move west, because it is already on the left border of the map).
                 </ol>
             </div>
             <div class="col-sm-12 text-center">
