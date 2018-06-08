@@ -3,11 +3,13 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Boat;
+use AppBundle\Services\MapManager;
 use AppBundle\Traits\BoatTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+
 
 /**
  * Boat controller.
@@ -34,6 +36,57 @@ class BoatController extends Controller
 
         return $this->redirectToRoute('map');
     }
+
+    /**
+     * Move the boat to direction N,S,E,W
+     * @Route("/move/{direction}", name="moveDirection")
+     */
+    public function moveDirectionAction($direction,  MapManager $MapManager)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $boat = $this->getBoat();
+
+        $x=$boat->getCoordX();
+        $y=$boat->getCoordY();
+
+
+        $verify=$MapManager->tileExists($x, $y);
+
+        if ($verify==false){
+            //les coordonnées ne sont pas dans la carte, renvoie message flash
+            $this->addFlash('danger', 'Les coordonnées sont en dehors de la carte');
+        }
+
+        if ($direction == 'W'){
+            $x=$x-1;
+        }
+
+        if ($direction == 'E'){
+            $x=$x+1;
+        }
+
+        if ($direction == 'N'){
+            $y=$y-1;
+        }
+
+        if ($direction == 'S'){
+            $y=$y+1;
+        }
+
+        if ($verify==true){
+            $boat->setCoordX($x);
+            $boat->setCoordY($y);
+
+            $em->flush();
+
+        }
+
+
+        return $this->redirectToRoute('map');
+    }
+
+
+
 
     /**
      * Lists all boat entities.

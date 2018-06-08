@@ -27,6 +27,7 @@ class MapController extends Controller
         }
 
         $boat = $this->getBoat();
+        $coord = $boat->
 
         return $this->render('map/index.html.twig', [
             'map'  => $map ?? [],
