@@ -35,14 +35,34 @@
                 <div class="infos">
                     <h2>Information</h2>
                     {# Add here informations about current ship position #}
+                    Coordinates X : {{ CoordX }}
+                    Coordinates Y : {{ CoordY }}
+                    Boat Type : {{ BoatType }}
+
+                    <hr>
+
+                    <a href="/start" class="btn btn-info" role="button">START</a>
 
                 </div>
                 <div class="navigation">
                     <h2>Navigation</h2>
-                    <a href="boat/move/N" class="btn btn-info" role="button">N</a>
-                    <a href="boat/move/S" class="btn btn-info" role="button">S</a>
-                    <a href="boat/move/E" class="btn btn-info" role="button">E</a>
-                    <a href="boat/move/W" class="btn btn-info" role="button">W</a>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td><a href="boat/move/N" class="btn btn-info" role="button">N</a></td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td> <a href="boat/move/W" class="btn btn-info" role="button">W</a></td>
+                            <td></td>
+                            <td><a href="boat/move/E" class="btn btn-info" role="button">E</a></td> </td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td><a href="boat/move/S" class="btn btn-info" role="button">S</a><br></td>
+                            <td> </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>

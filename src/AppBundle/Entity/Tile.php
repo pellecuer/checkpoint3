@@ -51,6 +51,30 @@ class Tile
 
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="hasTreasure", type="boolean", nullable=true)
+     */
+    private $hasTreasure;
+
+    /**
+     * @return bool
+     */
+    public function isHasTreasure()
+    {
+        return $this->hasTreasure;
+    }
+
+    /**
+     * @param bool $hasTreasure
+     */
+    public function setHasTreasure($hasTreasure)
+    {
+        $this->hasTreasure = $hasTreasure;
+    }
+
+
+    /**
      * Get id
      *
      * @return int

@@ -49,41 +49,49 @@ class BoatController extends Controller
         $x=$boat->getCoordX();
         $y=$boat->getCoordY();
 
+            if ($direction == 'W') {
+                $x--;
+            }
 
-        $verify=$MapManager->tileExists($x, $y);
+            if ($direction == 'E') {
+                $x++;
+            }
 
-        if ($verify==false){
-            //les coordonnées ne sont pas dans la carte, renvoie message flash
-            $this->addFlash('danger', 'Les coordonnées sont en dehors de la carte');
-        }
+            if ($direction == 'N') {
+                $y--;
+            }
 
-        if ($direction == 'W'){
-            $x=$x-1;
-        }
+            if ($direction == 'S') {
+                $y++;
+            }
 
-        if ($direction == 'E'){
-            $x=$x+1;
-        }
-
-        if ($direction == 'N'){
-            $y=$y-1;
-        }
-
-        if ($direction == 'S'){
-            $y=$y+1;
-        }
-
-        if ($verify==true){
             $boat->setCoordX($x);
             $boat->setCoordY($y);
 
-            $em->flush();
+            $verify=$MapManager->tileExists($x, $y);
+            $randomIsland=$MapManager->getRandomIsland();
 
-        }
+
+            if ($verify==false) {
+                //les coordonnées ne sont pas dans la carte, renvoie message flash
+                $this->addFlash('danger', 'Les coordonnées sont en dehors de la carte');
+            }else {
+
+                $em->flush();
+                $checkTreasure = $MapManager ->checkTreasure($boat);
+
+                if ($checkTreasure==true) {
+                    //le bateau est sur l'ile au Trésors, renvoie message flash
+                    $this->addFlash('success', 'Le bateau est sur l\'ile au Trésors');
+
+                }
+            }
 
 
-        return $this->redirectToRoute('map');
+    return $this->redirectToRoute('map');
+
     }
+
 
 
 
