@@ -35,13 +35,11 @@
                 <div class="infos">
                     <h2>Information</h2>
                     {# Add here informations about current ship position #}
-                    Coordinates X : {{ CoordX }}
-                    Coordinates Y : {{ CoordY }}
-                    Boat Type : {{ BoatType }}
+                    Coordinates X : {{ boat.getCoordX }}
+                    Coordinates Y : {{ boat.getCoordY }}
+                    Boat Type : {{ tileType }}
 
                     <hr>
-
-                    <a href="/start" class="btn btn-info" role="button">START</a>
 
                 </div>
                 <div class="navigation">
@@ -49,6 +47,7 @@
                     <table>
                         <tr>
                             <td></td>
+                            {# TODO utilisr path() #}
                             <td><a href="boat/move/N" class="btn btn-info" role="button">N</a></td>
                             <td> </td>
                         </tr>

@@ -39,9 +39,9 @@ class BoatController extends Controller
 
     /**
      * Move the boat to direction N,S,E,W
-     * @Route("/move/{direction}", name="moveDirection")
+     * @Route("/move/{direction}", name="moveDirection", requirements={"direction"="[N|S|E|W]"})
      */
-    public function moveDirectionAction($direction,  MapManager $MapManager)
+    public function moveDirectionAction($direction,  MapManager $mapManager)
     {
         $em = $this->getDoctrine()->getManager();
         $boat = $this->getBoat();
@@ -65,30 +65,28 @@ class BoatController extends Controller
                 $y++;
             }
 
-            $boat->setCoordX($x);
-            $boat->setCoordY($y);
-
-            $verify=$MapManager->tileExists($x, $y);
-            $randomIsland=$MapManager->getRandomIsland();
 
 
-            if ($verify==false) {
+            $verify=$mapManager->tileExists($x, $y);
+
+
+            if (!$verify) {
                 //les coordonnées ne sont pas dans la carte, renvoie message flash
                 $this->addFlash('danger', 'Les coordonnées sont en dehors de la carte');
             }else {
+                $boat->setCoordX($x);
+                $boat->setCoordY($y);
 
                 $em->flush();
-                $checkTreasure = $MapManager ->checkTreasure($boat);
+                $checkTreasure = $mapManager->checkTreasure($boat);
 
-                if ($checkTreasure==true) {
-                    //le bateau est sur l'ile au Trésors, renvoie message flash
+                if ($checkTreasure) {
+                    //renvoie message flash, le bateau est sur l'ile au Trésors,
                     $this->addFlash('success', 'Le bateau est sur l\'ile au Trésors');
 
                 }
             }
-
-
-    return $this->redirectToRoute('map');
+            return $this->redirectToRoute('map');
 
     }
 

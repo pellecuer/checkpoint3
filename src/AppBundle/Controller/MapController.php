@@ -31,26 +31,24 @@ class MapController extends Controller
         }
 
         $boat = $this->getBoat();
-        $CoordX = $this->getBoat()-> getCoordX();
-        $CoordY = $this->getBoat()->getCoordY();
 
-        $position = $em->getRepository(Tile::class)->findOneBy([
-            'coordX' => $CoordX,
-            'coordY' => $CoordY,
+
+
+        $tileposition = $em->getRepository(Tile::class)->findOneBy([
+            'coordX' => $this->getBoat()-> getCoordX(),
+            'coordY' => $this->getBoat()->getCoordY(),
 
 
 
         ]);
 
-        $boatType=$position->getType();
+        $tileType=$tileposition->getType();
 
 
         return $this->render('map/index.html.twig', [
             'map'  => $map ?? [],
             'boat' => $boat,
-            'CoordX' => $CoordX,
-            'CoordY' => $CoordY,
-            'BoatType' => $boatType,
+            'tileType' => $tileType,
 
 
         ]);
@@ -61,24 +59,19 @@ class MapController extends Controller
      */
     public function startAction(mapManager $mapManager)
     {
-
         $em = $this->getDoctrine()->getManager();
 
         // reset boat coordinates to 0,0
         $boat = $this->getBoat();
-
         $boat->setCoordX(0);
         $boat->setCoordY(0);
-        $em->flush();
-
 
         //remove the treasure from the mapp
-        $tiles = $em->getRepository(Tile::class)->findAll();
-        foreach ($tiles as $tile) {
-            [$tile->setHasTreasure(false)];
+        $tileTreasure = $em->getRepository(Tile::class)->findOneBy([
+            'hasTreasure' => true,
+        ]);
 
-            $em->flush();
-        }
+        $tileTreasure->setHasTreasure(false);
 
 
         //and put the treasure on a random island
@@ -86,8 +79,6 @@ class MapController extends Controller
         $randomIsland-> setHasTreasure(true);
         $em->flush();
 
-
         return $this->redirectToRoute('map');
-
     }
 }

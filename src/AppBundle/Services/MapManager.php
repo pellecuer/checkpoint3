@@ -81,6 +81,8 @@ class MapManager
 
     public function checkTreasure($boat)
     {
+        // TODO simplifier
+
         // first get island where treasure is true
         $TreasureIsland = $this->tileRepository->findOneBy([
             'hasTreasure' => true,
