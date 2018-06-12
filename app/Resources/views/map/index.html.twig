@@ -47,18 +47,17 @@
                     <table>
                         <tr>
                             <td></td>
-                            {# TODO utilisr path() #}
-                            <td><a href="boat/move/N" class="btn btn-info" role="button">N</a></td>
+                            <td><a href="{{ path('moveDirection', {'direction':'N'}) }}" class="btn btn-info" role="button">N</a></td>
                             <td> </td>
                         </tr>
                         <tr>
-                            <td> <a href="boat/move/W" class="btn btn-info" role="button">W</a></td>
+                            <td> <a href="{{ path('moveDirection', {'direction':'W'}) }}" class="btn btn-info" role="button">W</a></td>
                             <td></td>
-                            <td><a href="boat/move/E" class="btn btn-info" role="button">E</a></td> </td>
+                            <td><a href="{{ path('moveDirection', {'direction':'E'}) }}" class="btn btn-info" role="button">E</a></td> </td>
                         </tr>
                         <tr>
                             <td> </td>
-                            <td><a href="boat/move/S" class="btn btn-info" role="button">S</a><br></td>
+                            <td><a href="{{ path('moveDirection', {'direction':'S'}) }}" class="btn btn-info" role="button">S</a><br></td>
                             <td> </td>
                         </tr>
                     </table>
