@@ -55,48 +55,21 @@ class MapManager
         $randomIsland = $arrayIsland[$randomKeyIsland];
 
         return $randomIsland;
-
-        // return one tile randomly (in php)
-
-        // Look at array_rand() function.
-
     }
 
-    public function FindTreasureIsland()
-    {
-        // first get island where treasure is true
-        $TreasureIsland = $this->tileRepository->findOneBy([
-            'hasTreasure' => true,
-        ]);
 
-
-        return $TreasureIsland;
-
-        // return one tile randomly (in php)
-
-        // Look at array_rand() function.
-
-    }
 
 
     public function checkTreasure($boat)
     {
-        // TODO simplifier
 
         // first get island where treasure is true
         $TreasureIsland = $this->tileRepository->findOneBy([
             'hasTreasure' => true,
         ]);
 
-        //get Coordinate of the island
-        $CoordXIsland = $TreasureIsland->getCoordX();
-        $CoordYIsland = $TreasureIsland->getCoordY();
 
-        //check that this boat is on the tile with the treasure
-        $CoordXboat = $boat-> getCoordX();
-        $CoordYBoat = $boat->getCoordY();
-
-        if ($CoordXboat == $CoordXIsland && $CoordYIsland == $CoordYBoat){
+        if ($boat-> getCoordX() == $TreasureIsland->getCoordX() && $boat->getCoordY() == $TreasureIsland->getCoordY()){
             $isOnTreasureIsland = true;
         }else {
             $isOnTreasureIsland = false;
